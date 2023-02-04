@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>számologép</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .menu {
+            float: left;
+            width: 20%;
+            text-align: center;
+        }
+        
+        .menu a {
+            background-color: rgb(37, 40, 182);
+            padding: 8px;
+            margin-top: 7px;
+            display: block;
+            width: 100%;
+            color: white;
+        }
+        
+        .main {
+            float: left;
+            width: 60%;
+            padding: 0 20px;
+        }
+        
+        .right {
+            background-color: rgb(34, 73, 201);
+            float: left;
+            width: 20%;
+            padding: 15px;
+            margin-top: 7px;
+            text-align: center;
+        }
+        
+        @media only screen and (max-width: 619px) {
+            /* For mobile phones: */
+            .menu,
+            .main,
+            .right {
+                width: 100%;
+            }
+        }
+        
+        iframe {
+            border: 0px;
+        }
+    </style>
+</head>
+
+
+<div class="nav">
+    <ul>
+      <li><a class="active"href="index.html">Főoldal</a></li>
+      <li><a class="active"href= "keplink.html">Képlink</a></li>
+      <li><a class="active"href="lista.html">Lista</a></li>
+      <li><a class="active"href="tablazat.html">Órarend</a></li>
+      <li><a class="active"href="urlap.html">Űrlap</a></li>
+      <li><a class="active"href="div.html">div</a></li>
+      <li><a class="active"href="index2.html">Home2</a></li>
+      <li><a class="active"href="szamolo.html">számológép</a></li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+        <div class="main">
+            <form action="javascript:void(0)" autocomplete="on">
+                <fieldset>
+                    <legend>számológép program</legend>
+                    <input type="number" name="szam" id="szam1" placeholder="SZÁM 1" required> .
+                    <input type="number" name="szam" id="szam2" placeholder="SZÁM 2" required> =
+                    <input type="text" id="eredmeny" placeholder="eredmény" readonly>
+                    <br><br>
+                    <label for="muv">művelet:</label>
+                    <input type="submit" name="muv" value="+" onclick="ad()">
+                    <input type="submit" name="muv" value="-" onclick="kiv()">
+                    <input type="reset" name="muv" value="DELETE">
+                </fieldset>
+            </form>
+            <script>
+                function ad() {
+                    eredmeny.value = Number(szam1.value) + Number(szam2.value);
+                }
+
+                function kiv() {
+                    eredmeny.value = Number(szam1.value) - Number(szam2.value);
+                }
+
+            </script>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <p> Copyright: kuszék szabolcs 
+            <a href="mailto:kuszeksz@kkszki.hu">kuszeksz@kkszki.hu</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
