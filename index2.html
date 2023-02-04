@@ -69,7 +69,8 @@
     <li><a class="active"href="urlap.html">Űrlap</a></li>
     <li><a class="active"href="div.html">div</a></li>
     <li><a class="active"href="index2.html">Home2</a></li>
-    <li><a class="active"href="szamolo.html">számológép</a></li>
+    <li><a class="active"href="index3.html">számológép</a></li>
+    
   </ul>
 </div>
 
@@ -94,49 +95,49 @@
 
 </body>
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
-  <link href="styles2.css" rel="stylesheet">
-  <script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
+<link href="styles2.css" rel="stylesheet">
+<script src="main.js"></script>
 <script type="x-shader/x-vertex" id="vertexshader">
 
-  attribute float size;
-  attribute vec3 customColor;
-  varying vec3 vColor;
+attribute float size;
+attribute vec3 customColor;
+varying vec3 vColor;
 
-  void main() {
+void main() {
 
-    vColor = customColor;
-    vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-    gl_PointSize = size * ( 300.0 / -mvPosition.z );
-    gl_Position = projectionMatrix * mvPosition;
+  vColor = customColor;
+  vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+  gl_PointSize = size * ( 300.0 / -mvPosition.z );
+  gl_Position = projectionMatrix * mvPosition;
 
-  }
+}
 
 </script>
 <script type="x-shader/x-fragment" id="fragmentshader">
 
- uniform vec3 color;
- uniform sampler2D pointTexture;
+uniform vec3 color;
+uniform sampler2D pointTexture;
 
- varying vec3 vColor;
+varying vec3 vColor;
 
- void main() {
+void main() {
 
-   gl_FragColor = vec4( color * vColor, 1.0 );
-   gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
+ gl_FragColor = vec4( color * vColor, 1.0 );
+ gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
 
- }
+}
 </script>
-  </head>
-  <body>
-    <div id="magic"></div>
-    <div class="playground">
-      <div class="bottomPosition">
-      </div>
+</head>
+<body>
+  <div id="magic"></div>
+  <div class="playground">
+    <div class="bottomPosition">
     </div>
+  </div>
 </body>
 </html>
+
 
 
 
