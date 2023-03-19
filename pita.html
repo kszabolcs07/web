@@ -1,78 +1,86 @@
 <!DOCTYPE html>
 <html lang="hu">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    
     <title>Pitagorasz</title>
-</head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+       
+        
+        h1 {
+            font-family: 'Pacifico', cursive;
+           
+        } 
 
-<style>
+        .haromszog {
+            display: inline-block;
+            width: 0;
+            height: 0;
+        }
+        .haromszog.derek {
+            border-bottom: 200px solid black;
+            border-right: 200px solid transparent;
+        }
+       
 
-        @import url(font-family: 'Shadows Into Light', cursive;);
     </style>
 </head>
-
-
-
-
-
-<div class="nav">
-    <ul>
-      <li><a class="active"href="index.html">Főoldal</a></li>
-      <li><a class="active"href= "keplink.html">Képlink</a></li>
-      <li><a class="active"href="lista.html">Lista</a></li>
-      <li><a class="active"href="tablazat.html">Órarend</a></li>
-      <li><a class="active"href="urlap.html">Űrlap</a></li>
-      <li><a class="active"href="div.html">div</a></li>
-      <li><a class="active"href="index2.html">Home2</a></li>
-      <li><a class="active"href="szamolo.html">számológép</a></li>
-      <li><a class="active"href="pita.html">pitagorasz </a></li>
-    </ul>
-  </div>
-
-
-
-
-    <h1>Pitagorasz tétel</h1>
-    <img src="img/pitagorasz.jpg" alt="Pitagorasz tétel">
-
-
-
-
-
-
-
-
-
-
-
 <body>
+    <div class="nav">
+        <ul>
+          <li><a class="active"href="index.html">Főoldal</a></li>
+          <li><a class="active"href= "keplink.html">Képlink</a></li>
+          <li><a class="active"href="lista.html">Lista</a></li>
+          <li><a class="active"href="tablazat.html">Órarend</a></li>
+          <li><a class="active"href="urlap.html">Űrlap</a></li>
+          <li><a class="active"href="div.html">div</a></li>
+          <li><a class="active"href="index2.html">Home2</a></li>
+          <li><a class="active"href="szamolo.html">számológép</a></li>
+          <li><a class="active"href="pita.html">pitagorasz </a></li>
+        </ul>
+      </div>
+    
+   <h1 class="pitag">PITAGORASZ TÉTEL SZÁMOLÓ</h1>
+   <img src="img/pitagorasz.jpg" alt="HÁROMSZÖG">
+
+  <p>Adj meg legalább két oldalt</p>
+<form>
+        <p><input type="text" id="a" oninput="szam()"> a. oldal</p>
+        <p><input type="text" id="b" oninput="szam()"> b. oldal</p>
+        <p><input type="text" id="c" oninput="szam()"> c. oldal</p>
+</form>
 
 
+    <h2>VÁLASZ EGY SZÍNT bazdmeg ne én csináljam ezt is <input type="color" id="szin"></h2>
 
     
+    <div class="háromszög derék"></div>
+    
 
-    <input type="number" name="a" id="var_a" placeholder="a értéke"><br>
-    <input type="number" name="b" id="var_b" placeholder="b értéke"><br><br>
-    <button onclick="pita(var_a.value, var_b.value)">c értéke = </button>
-    <p style="border: 1px solid black; width: 145px; height: 20px; border-radius: 3px;" id="eredmeny"></p>
 
     <script>
-        function pita(a, b) {
-            document.getElementById('eredmeny').innerHTML = Math.sqrt(a * a + b * b)
+        function szam() {
+            if (a.value != 0 && b.value != 0) {
+                c.value = Math.sqrt((a.value * a.value) + (b.value * b.value));
+            }
+            else if (a.value != 0 && c.value != 0) {
+                b.value = Math.sqrt((c.value * c.value)-(a.value * a.value));
+            }
+            else if (b.value != 0 && c.value != 0) {
+                a.value = Math.sqrt((c.value * c.value)-(b.value * b.value));
+            }
         }
+        const input = document.getElementById("szin");
+            input.oninput = () => {
+                document.body.style.backgroundColor = input.value
+            };
     </script>
 
-</body>
+    <h1>A megadott paraméterek alapján rajzolt háromszög</h1>
 
+    <img src="img/eredmeny,png.png" alt="eredmeny" style="width: 10%; height: 10% ;">
+</body>
 </html>
