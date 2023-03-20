@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,57 +9,57 @@
     <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-       
-        
+
+
         h1 {
             font-family: 'Pacifico', cursive;
-           
-        } 
+
+        }
 
         .haromszog {
             display: inline-block;
             width: 0;
             height: 0;
         }
+
         .haromszog.derek {
             border-bottom: 200px solid black;
             border-right: 200px solid transparent;
         }
-       
-
     </style>
 </head>
+
 <body>
     <div class="nav">
         <ul>
-          <li><a class="active"href="index.html">Főoldal</a></li>
-          <li><a class="active"href= "keplink.html">Képlink</a></li>
-          <li><a class="active"href="lista.html">Lista</a></li>
-          <li><a class="active"href="tablazat.html">Órarend</a></li>
-          <li><a class="active"href="urlap.html">Űrlap</a></li>
-          <li><a class="active"href="div.html">div</a></li>
-          <li><a class="active"href="index2.html">Home2</a></li>
-          <li><a class="active"href="szamolo.html">számológép</a></li>
-          <li><a class="active"href="pita.html">pitagorasz </a></li>
+            <li><a class="active" href="index.html">Főoldal</a></li>
+            <li><a class="active" href="keplink.html">Képlink</a></li>
+            <li><a class="active" href="lista.html">Lista</a></li>
+            <li><a class="active" href="tablazat.html">Órarend</a></li>
+            <li><a class="active" href="urlap.html">Űrlap</a></li>
+            <li><a class="active" href="div.html">div</a></li>
+            <li><a class="active" href="index2.html">Home2</a></li>
+            <li><a class="active" href="szamolo.html">számológép</a></li>
+            <li><a class="active" href="pita.html">pitagorasz </a></li>
         </ul>
-      </div>
-    
-   <h1 class="pitag">PITAGORASZ TÉTEL SZÁMOLÓ</h1>
-   <img src="img/pitagorasz.jpg" alt="HÁROMSZÖG">
+    </div>
 
-  <p>Adj meg legalább két oldalt</p>
-<form>
+    <h1 class="pitag">PITAGORASZ TÉTEL SZÁMOLÓ</h1>
+    <img src="img/pitagorasz.jpg" alt="HÁROMSZÖG">
+
+    <p>Adj meg legalább két oldalt</p>
+    <form>
         <p><input type="text" id="a" oninput="szam()"> a. oldal</p>
         <p><input type="text" id="b" oninput="szam()"> b. oldal</p>
         <p><input type="text" id="c" oninput="szam()"> c. oldal</p>
-</form>
+    </form>
 
 
     <h2>VÁLASZ EGY SZÍNT bazdmeg ne én csináljam ezt is <input type="color" id="szin"></h2>
 
-    
+
     <div class="háromszög derék"></div>
-    
+
 
 
     <script>
@@ -67,20 +68,52 @@
                 c.value = Math.sqrt((a.value * a.value) + (b.value * b.value));
             }
             else if (a.value != 0 && c.value != 0) {
-                b.value = Math.sqrt((c.value * c.value)-(a.value * a.value));
+                b.value = Math.sqrt((c.value * c.value) - (a.value * a.value));
             }
             else if (b.value != 0 && c.value != 0) {
-                a.value = Math.sqrt((c.value * c.value)-(b.value * b.value));
+                a.value = Math.sqrt((c.value * c.value) - (b.value * b.value));
             }
         }
         const input = document.getElementById("szin");
-            input.oninput = () => {
-                document.body.style.backgroundColor = input.value
-            };
+        input.oninput = () => {
+            document.body.style.backgroundColor = input.value
+        };
     </script>
 
-    <h1>A megadott paraméterek alapján rajzolt háromszög</h1>
 
-    <img src="img/eredmeny,png.png" alt="eredmeny" style="width: 10%; height: 10% ;">
+    <form action="javascript:void(0)">
+        <fieldset>
+            <legend> Add meg a háromszög befogóit:</legend>
+            <label for="a_oldal">a_oldal:</label>
+            <input type="number" name="sz" id="a_oldal" oninput="rajzol()">
+            <br>
+            <label for="b_oldal">b_oldal: </label>
+            <input type="number" name="sz" id="b_oldal" oninput="rajzol()">
+            <br>
+            <label for="szin"> szín </label>
+            <input type="color" name="szín" id="szin" oninput="rajzol()">
+            <div id="haromszog"></div>
+        </fieldset>
+    </form>
+
+
+    <style>
+        #haromszog {
+
+            border-top: 200px solid transparent;
+            border-left: 100px solid blueviolet;
+        }
+    </style>
+
+    <script>
+        function rajzol() {
+            const haromsz = document.getElementById('haromszog');
+            haromsz.style = "border-top:" + a_oldal.value + "px solid  transparent;"
+                + "border-left:" + b_oldal.value + "px solid " + szin.value +  ";"
+        }
+        
+    </script>
+
 </body>
+
 </html>
